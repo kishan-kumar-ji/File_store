@@ -131,7 +131,7 @@ async def not_joined(client: Client, message: Message):
         buttons.append(
             [
                 InlineKeyboardButton(
-                    text = 'Try Again',
+                    text = 'CLICK HERE TO GET',
                     url = f"https://t.me/{client.username}?start={message.command[1]}"
                 )
             ]
