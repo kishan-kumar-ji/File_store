@@ -3,7 +3,16 @@
 
 
 
-import os
+
+from pyrogram import Client, filters
+from datetime import datetime, timedelta
+import re,random,requests
+#from pyrogra.types import ReplyKeyboardMarkup
+from pyrogram.handlers import MessageHandler
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup
+
+
+import os,requests
 import asyncio
 from pyrogram import Client, filters, __version__
 from pyrogram.enums import ParseMode
@@ -16,18 +25,65 @@ from helper_func import subscribed, encode, decode, get_messages
 from database.database import add_user, del_user, full_userbase, present_user
 
 
+async def is_token_valid(mid, token):
+
+    tstr=datetime.now()
+    ox=open(f"verify.txt",'r')
+    prt= ox.read().splitlines()
+    ox.close()
+    os.system(f"sed -i '/{token}/d' verify.txt")
+    if token in prt:
+        result=datetime.now() + timedelta(hours=24)
+        print(result)
+        os.system(f'echo "{result.strftime("%Y:%m:%d:%H:%M")}" > {mid}.txt')
+        return True
+    else:
+        return False
+
+
+
+async def time_checker(yearx,monthx,dayx,hourx,mintx):
+
+    tchk=datetime.now()
+    y=tchk.strftime("%Y")
+    m=tchk.strftime("%m")
+    d=tchk.strftime("%d")
+    h=tchk.strftime("%H")
+    mi=tchk.strftime("%M")
+    kk=datetime(int(y),int(m),int(d),int(h),int(mi))
+    ik=datetime(int(yearx),int(monthx),int(dayx),int(hourx), int(mintx))
+    if ik > kk:
+        return True
+
+
+
 
 
 @Bot.on_message(filters.command('start') & filters.private & subscribed)
 async def start_command(client: Client, message: Message):
+    vfy=False
     id = message.from_user.id
+    try:
+        o=open(f'{id}.txt','r')
+        s=o.read().split(":")
+        o.close()
+        vfy=await time_checker(s[0],s[1],s[2],s[3],s[4])
+    except:
+        pass
     if not await present_user(id):
         try:
             await add_user(id)
         except:
             pass
+    if "verify_" in message.text:
+        _, token = message.text.split("_", 1)
+        vfy=await is_token_valid(id,token)
+        if vfy:
+            return await message.reply("✅ Your token successfully verified and valid for: 24 Hour")
+        else :
+            return await message.reply("Your token is invalid or Expired. Try again by clickking /start")
     text = message.text
-    if len(text)>7:
+    if len(text)>7 and vfy:
         try:
             base64_string = text.split(" ", 1)[1]
         except:
@@ -84,7 +140,7 @@ async def start_command(client: Client, message: Message):
             except:
                 pass
         return
-    else:
+    elif vfy :
         reply_markup = InlineKeyboardMarkup(
             [
                 [
@@ -105,7 +161,25 @@ async def start_command(client: Client, message: Message):
             disable_web_page_preview = True,
             quote = True
         )
-        return
+    else:
+        import string,json
+        token=  ''.join(random.choices(string.ascii_letters + string.digits, k=10))
+        uc=f'https://telegram.me/video_corn_bot?start=verify_{token}'
+        shor = f'https://inshorturl.com/api?api=14693d406d11d167bf57232fa66034268f203141&url={uc}'
+        response = requests.get(shor, headers={'Connection': 'close'})
+        js = json.loads(response.content)
+        urlx = js['shortenedUrl']
+
+
+        btn = [
+                    [InlineKeyboardButton("Click here take token", url=urlx)],
+                    [InlineKeyboardButton('>> HOW TO TAKE FREE TOKEN Tutorial ', url='https://t.me/japanese_live_actionz/31') ]
+                ]
+        await message.reply_text('Your Ads token is expired, refresh your token and try again.\n\nToken Timeout: 24 hours \nWhat is the token?\n\nThis is an ads token. If you pass 1 ad, you can use the bot for 24 Hour after passing the ad.' ,reply_markup=InlineKeyboardMarkup(btn))
+
+        tym=datetime.now()
+        os.system(f'echo "{token}" >> verify.txt')
+
 
     
 #=====================================================================================##
