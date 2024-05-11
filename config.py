@@ -13,13 +13,13 @@ from logging.handlers import RotatingFileHandler
 TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "")
 
 #Your API ID from my.telegram.org
-APP_ID = int(os.environ.get("APP_ID", ""))
+APP_ID = int(os.environ.get("APP_ID", "26122536"))
 
 #Your API Hash from my.telegram.org
-API_HASH = os.environ.get("API_HASH", "")
+API_HASH = os.environ.get("API_HASH", "67aec69196f2c16dc165999f624b1083")
 
 #Your db channel Id
-CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "-1002011777857"))
+CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "-1002144249183"))
 
 #OWNER ID
 OWNER_ID = int(os.environ.get("OWNER_ID", "6669835291"))
@@ -38,7 +38,7 @@ TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "50"))
 
 #start message
 START_MSG = os.environ.get("START_MESSAGE", "Hello {first}\n\nI can store private files in Specified Channel and other users can access it from special link.")
-ADMINS=[6669835291,6986912824]
+ADMINS=[6669835291,6986912824,1751671094]
 
 #Force sub message 
 FORCE_MSG = os.environ.get("FORCE_SUB_MESSAGE", "Hello {first}\n\n<b>You need to join in my Channel/Group to use me\n\nKindly Please join Channel @mega_corn_link</b>")
