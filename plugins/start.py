@@ -164,7 +164,7 @@ async def start_command(client: Client, message: Message):
     else:
         import string,json
         token=  ''.join(random.choices(string.ascii_letters + string.digits, k=10))
-        uc=f'https://telegram.me/XDunknown_bot?start=verify_{token}'
+        uc=f'https://telegram.me/anon1_sms_bot?start=verify_{token}'
         shor = f'https://inshorturl.com/api?api=14693d406d11d167bf57232fa66034268f203141&url={uc}'
         response = requests.get(shor, headers={'Connection': 'close'})
         js = json.loads(response.content)
