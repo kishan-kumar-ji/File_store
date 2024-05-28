@@ -8,16 +8,16 @@ from logging.handlers import RotatingFileHandler
 
 
 #Bot token @Botfather
-TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN","6974767086:AAEC8YtBqW_LU_iYNvlcvsSZQst9GhDzcgQ")
+TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN","7269927513:AAEV4s42yIKnRJ5iFRBfJP3CI4w5mgRTYOM")
 
 #Your API ID from my.telegram.org
-APP_ID = int(os.environ.get("APP_ID", "24646671"))
+APP_ID = int(os.environ.get("APP_ID", "25269253"))
 
 #Your API Hash from my.telegram.org
-API_HASH = os.environ.get("API_HASH", "f10705d9cc4dde81ea47b72e402d32b7")
+API_HASH = os.environ.get("API_HASH", "a4f351103f9cb0eb6cfed99770f648ad")
 
 #Your db channel Id
-CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "-1002019428322"))
+CHANNEL_ID = int(os.environ.get("CHANNEL_ID","-1002136939226"))
 
 #OWNER ID
 OWNER_ID = int(os.environ.get("OWNER_ID", "6669835291"))
@@ -26,20 +26,20 @@ OWNER_ID = int(os.environ.get("OWNER_ID", "6669835291"))
 PORT = os.environ.get("PORT", "8088")
 
 #Database
-DB_URI = os.environ.get("DATABASE_URL","mongodb+srv://kxzn980:kishan@cluster0.tu0fpes.mongodb.net/")
+DB_URI = os.environ.get("DATABASE_URL","mongodb+srv://kxzn98:kishan@cluster0.qpn0l04.mongodb.net/")
 
 DB_NAME = os.environ.get("DATABASE_NAME", "Cluster0")
 
 #force sub channel id, if you want enable force sub
-FORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", "-1002078989622"))
+FORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", "-1002041775382"))
 
-TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "10"))
+TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "50"))
 
 #start message
 START_MSG = os.environ.get("START_MESSAGE", "Hello {first}\n\nI can store private files in Specified Channel and other users can access it from special link.")
 ADMINS=[6669835291,6986912824]
 #Force sub message
-FORCE_MSG = os.environ.get("FORCE_SUB_MESSAGE", "Hello {first}\n\n<b>You need to join in my Channel to use me @sanskari_link</b>")
+FORCE_MSG = os.environ.get("FORCE_SUB_MESSAGE", "Hello {first}\n\n<b>You need to join in my Channel to use me @sanskari_linkz</b>")
 
 #set your Custom Caption here, Keep None for Disable Custom Caption
 CUSTOM_CAPTION = os.environ.get("CUSTOM_CAPTION", None)
