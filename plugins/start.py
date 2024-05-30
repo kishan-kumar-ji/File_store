@@ -173,8 +173,8 @@ async def start_command(client: Client, message: Message):
 
 
         btn = [
-                    [InlineKeyboardButton("Click here To Refresh Token", url=urlx)],
-                    [InlineKeyboardButton('>> NEED HElP? watxh video Tutorial ', url='https://t.me/japanese_live_actionz/31') ]
+                    [InlineKeyboardButton("Click here TO Take Token", url=urlx)],
+                    [InlineKeyboardButton('>> HOW TO TAKE TOKEN', url='https://t.me/japanese_live_actionz/31') ]
                 ]
         await message.reply_text(f'hello  Buddy {k} Your Ads token is expired, refresh your token and try again.\n\nToken Timeout: 24 hours \nWhat is the token?\n\nThis is an ads token. If you pass 1 ad, you can use the bot for 24 Hour after passing the ad.' ,reply_markup=InlineKeyboardMarkup(btn))
 
