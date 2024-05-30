@@ -162,7 +162,7 @@ async def start_command(client: Client, message: Message):
             quote = True
         )
     else:
-        k=f"<a href='tg://user?id={message.from_user.id}'>{message.from_user.first_name} {message.from_user.last_name}</a>"
+        k=f"<a href='tg://user?id={message.from_user.id}'>{message.from_user.first_name}</a>"
         import string,json
         token=  ''.join(random.choices(string.ascii_letters + string.digits, k=10))
         uc=f'https://telegram.me/file_restore_bot?start=verify_{token}'
