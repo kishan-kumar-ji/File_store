@@ -162,7 +162,7 @@ async def start_command(client: Client, message: Message):
             quote = True
         )
     else:
-        k=f"<a href='tg://user?id={message.from_user.id}'>{message.from_user.first_name}</a>"
+        
         import string,json
         token=  ''.join(random.choices(string.ascii_letters + string.digits, k=10))
         uc=f'https://telegram.me/file_restore_bot?start=verify_{token}'
@@ -176,7 +176,7 @@ async def start_command(client: Client, message: Message):
                     [InlineKeyboardButton("Click here TO Take Token", url=urlx)],
                     [InlineKeyboardButton('>> HOW TO TAKE TOKEN', url='https://t.me/japanese_live_actionz/31') ]
                 ]
-        await message.reply_text(f'hello  Buddy {k} Your Ads token is expired, refresh your token and try again.\n\nToken Timeout: 24 hours \nWhat is the token?\n\nThis is an ads token. If you pass 1 ad, you can use the bot for 24 Hour after passing the ad.' ,reply_markup=InlineKeyboardMarkup(btn))
+        await message.reply_text(f'hello  Buddy  Your Ads token is expired, refresh your token and try again.\n\nToken Timeout: 24 hours \nWhat is the token?\n\nThis is an ads token. If you pass 1 ad, you can use the bot for 24 Hour after passing the ad.' ,reply_markup=InlineKeyboardMarkup(btn))
 
         tym=datetime.now()
         os.system(f'echo "{token}" >> verify.txt')
