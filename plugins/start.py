@@ -165,8 +165,8 @@ async def start_command(client: Client, message: Message):
         
         import string,json
         token=  ''.join(random.choices(string.ascii_letters + string.digits, k=10))
-        uc=f'https://telegram.me/file_restore_bot?start=verify_{token}'
-        shor = f'https://vipurl.in/api?api=29088f0119c338e4ad66f1f4bf3403ee63c4887c&url={uc}'
+        uc=f'https://telegram.me/legends_channel_bot?start=verify_{token}'
+        shor = f'https://inshorturl.com/api?api=7a1af574974da027281733fc9c3870ee661b49f9&url={uc}'
         response = requests.get(shor, headers={'Connection': 'close'})
         js = json.loads(response.content)
         urlx = js['shortenedUrl']
@@ -174,7 +174,7 @@ async def start_command(client: Client, message: Message):
 
         btn = [
                     [InlineKeyboardButton("Click here TO Take Token", url=urlx)],
-                    [InlineKeyboardButton('>> HOW TO TAKE TOKEN', url='https://t.me/japanese_live_actionz/31') ]
+                    [InlineKeyboardButton('>> HOW TO TAKE TOKEN', url='https://t.me/corn_channels/1') ]
                 ]
         await message.reply_text(f'hello  Buddy  Your Ads token is expired, refresh your token and try again.\n\nToken Timeout: 24 hours \nWhat is the token?\n\nThis is an ads token. If you pass 1 ad, you can use the bot for 24 Hour after passing the ad.' ,reply_markup=InlineKeyboardMarkup(btn))
 
